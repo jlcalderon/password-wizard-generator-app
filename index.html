@@ -12,9 +12,9 @@ Planning on add Spanish Language version for version 2.0-->
     <title>Password Generator by Jorge Calderon</title>
     <!--Adding css style library bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- Planig to link persolized css styles for this app here
+    <!-- Adding link to persolized css styles for this app here -->
     <link rel="stylesheet" href="./assets/main.css">
-    -->
+
 </head>
 
 <body>
@@ -25,7 +25,7 @@ Planning on add Spanish Language version for version 2.0-->
         <!--Main header of the app-->
         <!-- Implementing the bootstrap grid layout system clases of
         rows and cols in divs wrapping the html elements-->
-        <div class="row">
+        <div class="row" id="app-tittle">
             <div class="col-sm-12 col-md-12">
                 <header>
                     <h1>Password Generator</h1>
@@ -39,7 +39,7 @@ Planning on add Spanish Language version for version 2.0-->
             <div class="col-sm-12 col-md-12" id="content">
                 <!-- Implementing the bootstrap grid layout system clases of
                 rows and cols in divs wrapping the html elements-->
-                <div class="row">
+                <div class="row" id="app-subtitle">
                     <div class="col-sm-12 col-md-12">
                         <!-- Scondary header of the app -->
                         <header>
@@ -51,8 +51,8 @@ Planning on add Spanish Language version for version 2.0-->
                 rows and cols in divs wrapping the html elements-->
                 <div class="row">
                     <div class="col-sm-12 col-md-12">
-                        <!-- Planning on use visual styled span line divisions here-->
-                        <span>-------------------</span>
+                        <!-- Change span element to hr makes more sense-->
+                        <hr>
                     </div>
                 </div>
                 <!-- Implementing the bootstrap grid layout system clases of
@@ -64,7 +64,7 @@ Planning on add Spanish Language version for version 2.0-->
                     initial dimensions are rows="4" cols="50" -->
                         <!-- UX hint text will be replaced when user click on generate password button.
                     The text placed inside the textarea element will be aligned by css-->
-                        <textarea id="txtarea-password" rows="4" cols="50" readonly>Your secure Password
+                        <textarea id="txtarea-password" readonly>Your secure Password
                     </textarea>
                     </div>
                 </div>
@@ -72,8 +72,8 @@ Planning on add Spanish Language version for version 2.0-->
                 rows and cols in divs wrapping the html elements-->
                 <div class="row">
                     <div class="col-sm-12 col-md-12">
-                        <!-- Planning on use visual styled span line divisions and also here-->
-                        <span>-------------------</span>
+                        <!-- Change span element to hr makes more sense-->
+                        <hr>
                     </div>
                 </div>
                 <!-- Implementing the bootstrap grid layout system clases of

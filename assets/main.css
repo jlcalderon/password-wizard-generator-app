@@ -1,0 +1,105 @@
+/* Fixing no margin added to the overall app by the browser */
+
+* {
+    margin: 0px;
+}
+
+
+/* Adding subtle backgroud color to the aoverall body and 
+changing text color with the color property fixed here */
+
+body {
+    background-color: #F5F5F5;
+    color: #696969;
+}
+
+
+/* Adding a subtle padding to the wrapper div of this app */
+
+#wrapper {
+    padding: 4%;
+}
+
+
+/* Styling main tittle. Centering text of this app title heading */
+
+#app-tittle {
+    text-align: center;
+}
+
+
+/* Styling the contents box of this app 
+adding subtle snow white background color and shadows to the edges,
+some padding and margin from the top title  
+and making sure the styles run in all browsers*/
+
+#content {
+    margin-top: 5%;
+    background-color: #FFFAFA;
+    padding: 5%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=45, Color=#000000)";
+    /*IE 8*/
+    -moz-box-shadow: -1px 1px 5px -2px #000000;
+    /*FF 3.5+*/
+    -webkit-box-shadow: -1px 1px 5px -2px #000000;
+    /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    box-shadow: -1px 1px 5px -2px #000000;
+    /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+    filter: progid: DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color=#000000);
+    /*IE 5.5-7*/
+}
+
+
+/* Styling the inner tittle of the content box
+ first mobile centered  */
+
+#app-subtitle {
+    text-align: center;
+}
+
+
+/* styling textarea element  */
+
+#txtarea-password {
+    border: dashed 2px gray;
+    border-radius: 10px;
+    text-align: center;
+    color: gray;
+    padding: 3%;
+    width: 100%;
+    height: 150px;
+}
+
+
+/* Centering action button of this app
+mobile first 28% */
+
+button {
+    margin-left: 28%;
+}
+
+
+/* Adding responsive media queries 
+to set breakpoints of large screens */
+
+@media screen and (min-width: 960px) {
+    /* Making the app subtitle alignment left */
+    #app-subtitle {
+        text-align: left;
+    }
+    /* Centering the action button acording to screen of 960px large */
+    button {
+        margin-left: 38%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    /* Making the app subtitle alignment left */
+    #app-subtitle {
+        text-align: left;
+    }
+    /* Centering the action button acording to screen of 1200px large */
+    button {
+        margin-left: 42%;
+    }
+}
