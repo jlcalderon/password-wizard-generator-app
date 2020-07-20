@@ -1,29 +1,48 @@
 <!DOCTYPE html>
+<!--Languange encoding for this app in version 1.0
+Planning on add Spanish Language version for version 2.0-->
 <html lang="en">
 
 <head>
+    <!--Encoding characters-->
     <meta charset="UTF-8">
+    <!-- Enebling Screen view port to make the app responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Tab web-browser tittle of this app-->
     <title>Password Generator by Jorge Calderon</title>
+    <!--Planning on add css style library bootstrap here-->
 </head>
 
 <body>
+    <!-- Wrapping all contents of the app in a wrapper div-->
     <div id="wrapper">
+        <!--Main header of the app-->
         <header>
             <h1>Password Generator</h1>
         </header>
+        <!-- div that holds the main contents of this app -->
         <div id="content">
+            <!-- Scondary header of the app -->
             <header>
                 <h2>Generate a Password</h2>
             </header>
+            <!-- Planning on use visual styled span line divisions here-->
             <span>-------------------</span>
+            <!-- Html textarea element that holds the generated password.
+            This element is set up as a readonly to avoid user input mistakes
+            initial dimensions are rows="4" cols="50" -->
             <textarea id="txtarea-password" rows="4" cols="50" readonly>
+                <!-- UX hint text will be replaced when user click on generate password button-->
                 Your secure Password
             </textarea>
+            <!-- Planning on use visual styled span line divisions and also here-->
             <span>-------------------</span>
+            <!--Button to execute the javascript code that generates a new string for the password -->
             <button id="generate-password-btn" type="submit">Generate Password</button>
         </div>
+        <!-- End of the div that holds the main contents of this app -->
     </div>
+    <!--End of Wrapping all contents of the app in a wrapper div-->
 </body>
 
 </html>
