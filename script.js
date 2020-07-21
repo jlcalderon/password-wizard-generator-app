@@ -1,3 +1,5 @@
+/****************** Constants , Global variables and arrays of this app ******************/
+
 //Encapsulating the html button element into a js constant
 const actionBtn = document.getElementById("generate-password-btn");
 //Creating an empty string variable for the generated password
@@ -6,17 +8,21 @@ let passwordString = "";
 const passwordMaxChar = 128;
 //Fixing a constant value of th minimun characters allow in the generator app
 const passwordMinChar = 8;
-
-//Declare Capital Letters Array
+//Declare Capital Letters Array length of 25
 const capitalLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-console.log(capitalLetter.toString());
-//Declare Lower Case Letters Array
-let LowerCaseLetter = capitalLetter.toString().toLocaleLowerCase('en-US');
+console.log(capitalLetter);
+/*Declare Lower Case Letters Array taking the capitalLetter Array 
+and changing to lowecase, length remain the same 25 */
+let LowerCaseLetter = capitalLetter.toString().toLocaleLowerCase('en-US').split(",");
 console.log(LowerCaseLetter);
-//Declare Special Characters Array
+//Declare Special Characters Array length is 19
 let specialChar = ["!", "#", "$", "%", "*", "[", "]", "/", ".", ",", ";", ":", "-", "+", "?", "¿", "&", "@", "€"];
 console.log(specialChar);
+//Declare Numbers Array length is 10
+let numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(numbersArray);
 
+/********************Event Click of the button element on this app**************************/
 //Adding event listener to the button element to execute our code on user's click
 actionBtn.addEventListener("click", () => {
     //First storing user input how many characters long they want their password with a prompt
@@ -36,8 +42,21 @@ actionBtn.addEventListener("click", () => {
         //Evaluate users input of special characters
         if (next === true) {
             //In case user's response is positive do the following
-            //add 3 special characters randomly from the array of special characters to the passwordString
 
+            /*/First grab the user desired password lenght and divided into 4,
+            Why 4? because we want equal parts of chracter 
+            from our predifined arrays to populate the new password*/
+            let specialCharCount = userInputChar / 4;
+            /*Making a loop of specialCharCount to
+            add a 1/4 fraction of special characters randomly taken from 
+            the array of special characters to the passwordString*/
+            for (let i = 0; i < specialCharCount; i++) {
+                //take random chars from the Array of special Chars wich length is 19
+                /*Note if -1 is not added to the max value in the getRandomIntInclusive
+                 function parameter you are going to get values undefined on your new password*/
+                let elementFromSpecialChars = getRandomIntInclusive(0, specialChar.length - 1);
+                passwordString = passwordString + specialChar[elementFromSpecialChars];
+            }
             //And Continue with the next question to the user
         }
         //Evaluate user's negative input of special characters 
@@ -48,3 +67,10 @@ actionBtn.addEventListener("click", () => {
     }
 
 });
+
+/*********** Get random numbers function taken from javascript MDN Documentation  ****************/
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
