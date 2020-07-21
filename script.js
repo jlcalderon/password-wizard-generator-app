@@ -38,9 +38,9 @@ actionBtn.addEventListener("click", () => {
     //In the case of the user's input is correct acording to this app criteria, proceed here
     else {
         //Ask again for user's input let user decide wether or not they want to include special characters to the new password
-        let next = confirm("Would you like to add special characters");
+        let special = confirm("Would you like to add special characters");
         //Evaluate users input of special characters
-        if (next === true) {
+        if (special === true) {
             //In case user's response is positive do the following
 
             /*/First grab the user desired password lenght and divided into 4,
@@ -58,6 +58,28 @@ actionBtn.addEventListener("click", () => {
                 passwordString = passwordString + specialChar[elementFromSpecialChars];
             }
             //And Continue with the next question to the user
+            let mayus = confirm("Would you like to add capital letters?");
+            //Evaluate users input of capital letters
+            if (mayus === true) {
+                //In case user's response is positive do the following
+
+                /*/First grab the user desired password lenght and divided into 4,
+            Why 4? because we want equal parts of chracters 
+            from our predifined arrays to populate the new password*/
+                let mayusCharCount = userInputChar / 4;
+                /*Making a loop of mayusCharCount to
+                add a 1/4 fraction of capital letters randomly taken from 
+                the array of capitalLetter to the passwordString*/
+                for (let m = 0; m < mayusCharCount; m++) {
+                    //take random chars from the Array of capital letters wich length is 25
+                    /*Note if -1 is not added to the max value in the getRandomIntInclusive
+                    function parameter you are going to get values undefined on your new password*/
+                    let elementFromCapitalLetter = getRandomIntInclusive(0, capitalLetter.length - 1);
+                    passwordString = passwordString + capitalLetter[elementFromCapitalLetter];
+                }
+
+            }
+
         }
         //Evaluate user's negative input of special characters 
         else {
