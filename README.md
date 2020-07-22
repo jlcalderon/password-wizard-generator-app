@@ -17,7 +17,7 @@ In order to create a secure password you must have a long password, passwords wi
 
 > To get started user must click the Generate Password `<button>`.
 
-> Then users must reply to the secuence of prompts and confirms to create a password with thier desired criteria.
+> Then users must reply to the secuence of prompts and confirms to set up a new password with thier desired criteria.
 
 > Copy the generated password from the `<textarea>` element and use it at your convinience.
 
