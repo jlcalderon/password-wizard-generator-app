@@ -1,9 +1,8 @@
 /****************** Constants , Global variables and arrays of this app ******************/
-
 //Encapsulating the html button element into a js constant
 const actionBtn = document.getElementById("generate-password-btn");
 //Creating an empty string variable for the generated password
-let passwordString = "";
+let passwordString = " ";
 //Fixing a constant value of the maximun characters allow in the generator app
 const passwordMaxChar = 128;
 //Fixing a constant value of th minimun characters allow in the generator app
@@ -42,7 +41,10 @@ let countEvenCharacters = 0;
 /********************Event Click of the button element on this app**************************/
 //Adding event listener to the button element to execute our code on user's click
 actionBtn.addEventListener("click", () => {
-    //First seting up how many characters long the password is going to be
+    //Clean up and set the variables to the default value
+    setVariablesToDefault();
+
+    //Seting up how many characters long the password is going to be
     setLenghtOfNewPassword();
 
     //Ask the user to add special characters to the new password string
@@ -77,6 +79,8 @@ actionBtn.addEventListener("click", () => {
         countEvenCharacters++;
     }
 
+    console.log(countEvenCharacters);
+
     // Call out the function to add special characters to new password string
     if (specialChars === true) {
         addSpecialCharacter();
@@ -89,15 +93,17 @@ actionBtn.addEventListener("click", () => {
     }
 
     //Call out the function to add Lowercase characters to the new password string
-
+    if (lowercase === true) {
+        addLowerCaseLetters();
+    }
 
     //Call out the function to add Numbers to the new password string
-
+    if (numberChars === true) {
+        addNumbersCharacters();
+    }
 
     //Output the new password string in the textarea element
     document.getElementById("txtarea-password").textContent = passwordString;
-
-
 
 });
 
@@ -121,7 +127,7 @@ function setLenghtOfNewPassword() {
     } else {
         alert("Great! Your desired character length meet the expectation of a secure password. Please proceed to select next option");
     }
-    console.log(`Password length is going to be: ${lenghtChar}`);
+
 }
 
 function addSpecialCharacter() {
@@ -156,4 +162,48 @@ function addCapitalLetters() {
         let elementFromCapitalLetter = getRandomIntInclusive(0, capitalLetterArray.length - 1);
         passwordString = passwordString + capitalLetterArray[elementFromCapitalLetter];
     }
+}
+
+function addLowerCaseLetters() {
+    /*/First grab the user desired password lenght and divided into countEvenCharacters,
+    Why? because we want equal parts of chracter 
+    from our predifined arrays to populate the new password*/
+    let lowerCaseL = lenghtChar / countEvenCharacters;
+    /*Making a loop of capitalL to
+    add a fraction of capital letters randomly taken from 
+    the array of capital letters to the passwordString*/
+    for (let l = 0; l < lowerCaseL; l++) {
+        //takes random chars from the Array of capital letters wich length is 25
+        /*Note if -1 is not added to the max value in the getRandomIntInclusive
+         function parameter you are going to get values undefined on your new password*/
+        let elementFromLowerCase = getRandomIntInclusive(0, LowerCaseLetterArray.length - 1);
+        passwordString = passwordString + LowerCaseLetterArray[elementFromLowerCase];
+    }
+}
+
+function addNumbersCharacters() {
+    /*/First grab the user desired password lenght and divided into countEvenCharacters,
+    Why? because we want equal parts of chracter 
+    from our predifined arrays to populate the new password*/
+    let numberCh = lenghtChar / countEvenCharacters;
+    /*Making a loop of capitalL to
+    add a fraction of capital letters randomly taken from 
+    the array of capital letters to the passwordString*/
+    for (let n = 0; n < numberCh; n++) {
+        //takes random chars from the Array of capital letters wich length is 25
+        /*Note if -1 is not added to the max value in the getRandomIntInclusive
+         function parameter you are going to get values undefined on your new password*/
+        let elementFromNumbersArray = getRandomIntInclusive(0, numbersArray.length - 1);
+        passwordString = passwordString + numbersArray[elementFromNumbersArray];
+    }
+}
+
+function setVariablesToDefault() {
+    countEvenCharacters = 0;
+    passwordString = " ";
+    lenghtChar = 0;
+    mayus = false;
+    lowercase = false;
+    numberChars = false;
+    specialChars = false;
 }
