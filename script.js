@@ -47,64 +47,11 @@ actionBtn.addEventListener("click", () => {
     //Seting up how many characters long the password is going to be
     setLenghtOfNewPassword();
 
-    //Ask the user to add special characters to the new password string
-    specialChars = confirm("Would you like to add special characters?");
-    //Evaluate users input of special characters
-    if (specialChars === true) {
-        //Add 1 to the counter of even percentages
-        countEvenCharacters++;
-    }
+    //Divide the password evenly among special characters, capital letters, lowercase letters and numbers
+    sectionPasswordEvenCharsPercentage();
 
-    //Ask the user to add capital letters to the new password string
-    mayus = confirm("Would you like to add capital letters?");
-    //Evaluate users input of capital letters
-    if (mayus === true) {
-        //Add 1 to the counter of even percentages
-        countEvenCharacters++;
-    }
-
-    //Ask the user to add lower case letters to the new password string
-    lowercase = confirm("Would you like to add lower case letters?");
-    //Evaluate users input of lower case letters
-    if (lowercase === true) {
-        //Add 1 to the counter of even percentages
-        countEvenCharacters++;
-    }
-
-    //Ask the user to add numbers to the new password string
-    numberChars = confirm("Would you like to add numbers to the new password?");
-    //Evaluate users input of numbers
-    if (numberChars === true) {
-        //Add 1 to the counter of even percentages
-        countEvenCharacters++;
-    }
-
-    console.log(countEvenCharacters);
-
-    // Call out the function to add special characters to new password string
-    if (specialChars === true) {
-        addSpecialCharacter();
-    }
-
-
-    //Call out the function to add Uppercase characters to the new password string
-    if (mayus === true) {
-        addCapitalLetters();
-    }
-
-    //Call out the function to add Lowercase characters to the new password string
-    if (lowercase === true) {
-        addLowerCaseLetters();
-    }
-
-    //Call out the function to add Numbers to the new password string
-    if (numberChars === true) {
-        addNumbersCharacters();
-    }
-
-    //Output the new password string in the textarea element
-    document.getElementById("txtarea-password").textContent = passwordString;
-
+    //Execute users criteria to create a new password
+    createNewPassword();
 });
 
 /*********** Get random numbers function taken from javascript MDN Documentation  ****************/
@@ -206,4 +153,66 @@ function setVariablesToDefault() {
     lowercase = false;
     numberChars = false;
     specialChars = false;
+}
+
+function sectionPasswordEvenCharsPercentage() {
+    //Ask the user to add special characters to the new password string
+    specialChars = confirm("Would you like to add special characters?");
+    //Evaluate users input of special characters
+    if (specialChars === true) {
+        //Add 1 to the counter of even percentages
+        countEvenCharacters++;
+    }
+
+    //Ask the user to add capital letters to the new password string
+    mayus = confirm("Would you like to add capital letters?");
+    //Evaluate users input of capital letters
+    if (mayus === true) {
+        //Add 1 to the counter of even percentages
+        countEvenCharacters++;
+    }
+
+    //Ask the user to add lower case letters to the new password string
+    lowercase = confirm("Would you like to add lower case letters?");
+    //Evaluate users input of lower case letters
+    if (lowercase === true) {
+        //Add 1 to the counter of even percentages
+        countEvenCharacters++;
+    }
+
+    //Ask the user to add numbers to the new password string
+    numberChars = confirm("Would you like to add numbers to the new password?");
+    //Evaluate users input of numbers
+    if (numberChars === true) {
+        //Add 1 to the counter of even percentages
+        countEvenCharacters++;
+    }
+
+    console.log(`Password is going to be devided into ${countEvenCharacters} to have equal percentage of characters, symbols and numbers`);
+}
+
+function createNewPassword() {
+    // Call out the function to add special characters to new password string
+    if (specialChars === true) {
+        addSpecialCharacter();
+    }
+
+
+    //Call out the function to add Uppercase characters to the new password string
+    if (mayus === true) {
+        addCapitalLetters();
+    }
+
+    //Call out the function to add Lowercase characters to the new password string
+    if (lowercase === true) {
+        addLowerCaseLetters();
+    }
+
+    //Call out the function to add Numbers to the new password string
+    if (numberChars === true) {
+        addNumbersCharacters();
+    }
+
+    //Output the new password string in the textarea element
+    document.getElementById("txtarea-password").textContent = passwordString;
 }
